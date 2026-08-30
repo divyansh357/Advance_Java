@@ -73,4 +73,16 @@ public void playQuiz(){
         j++;
     }
 }
+public void printScore(){
+    int score =0;
+    for(int i=0;i<questions.length;i++){
+        Question ques = questions[i];
+        String UserInput = choices[i];
+        String answer = ques.getAns();
+        if(answer.equals(UserInput)){
+            score++;
+        }
+    }
+    System.out.println("Your Score is: "+ score);
+}
 }

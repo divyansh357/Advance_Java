@@ -31,6 +31,7 @@ public class Main{
 
         QuestionService qs = new QuestionService();
         qs.playQuiz();
+        qs.printScore();
 
 
 
