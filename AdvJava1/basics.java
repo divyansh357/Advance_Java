@@ -33,6 +33,14 @@ class A{ //Illegal modifier for the class A; only public, abstract & final are p
 
 }
 
+//Anonymous Inner Class 
+class C{
+    public void show(){
+        System.out.println("in A show");
+    }
+}
+
+
 
 public class basics{
     public static void main(String[] args) {
@@ -41,11 +49,19 @@ public class basics{
         // obj.fly();
 
         // Inner Class 
-        A obj = new A();
-        obj.show();
-        //A.B obj1 = obj.new B();  // object creation for non static inner class  
-        A.B obj1 = new A.B(); // object creation for static inner class
+        // A obj = new A();
+        // obj.show();
+        // //A.B obj1 = obj.new B();  // object creation for non static inner class  
+        // A.B obj1 = new A.B(); // object creation for static inner class
 
-        obj1.config();
+        // obj1.config();
+
+        //Anonymous Inner Class
+        C obj = new C(){ // class without name and 
+            public void show(){
+                System.out.println("in anonymous class show");
+            }
+        };
+        obj.show();
     }
 }
