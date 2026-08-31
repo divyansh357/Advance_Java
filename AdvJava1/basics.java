@@ -56,13 +56,23 @@ interface E{
     void config();
 }
 
-class F implements E{
+interface G{
+    void run();
+}
+interface H extends G{ // interface extending aanother interface
+
+}
+
+class F implements E,H{ // a class can implement multiple interfaces
     public void show() {
        System.out.println("in show");
     }
 
     public void config() {
         System.out.println("in config");
+    }
+    public void run(){
+        System.out.println("Running...");
     }
 }
 
@@ -105,6 +115,11 @@ public class basics{
         E obj;
         obj = new F();
         obj.show();
-        obj.config();System.out.println(E.age+ " "+ E.city);
+
+        H obj1;
+        obj1 = new F();
+        obj1.run();
+        obj.config();
+        System.out.println(E.age+ " "+ E.city);
     }
 }
