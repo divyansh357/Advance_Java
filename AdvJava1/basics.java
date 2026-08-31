@@ -40,6 +40,7 @@ class C{
     }
 }
 
+
 // Abstract and Anonymous Inner Class
 abstract class D{
     public abstract void show();
@@ -47,7 +48,23 @@ abstract class D{
 
 }
 
+// Interface
+interface E{
+    int age = 21; // all variables implicitly final static
+    String city = "Mumbai";
+    void show(); // all methods implicitly public abstract
+    void config();
+}
 
+class F implements E{
+    public void show() {
+       System.out.println("in show");
+    }
+
+    public void config() {
+        System.out.println("in config");
+    }
+}
 
 public class basics{
     public static void main(String[] args) {
@@ -72,16 +89,22 @@ public class basics{
         // obj.show();
 
         // Abstract and Anonymous Inner Class
-        D obj = new D(){
-            public void show(){ // this object is not of abstract class it is of anonymous inner class 
-                System.out.println("in new Show");
-            }
+        // D obj = new D(){  // this object is not of abstract class it is of anonymous inner class 
+        //     public void show(){ 
+        //         System.out.println("in new Show");
+        //     }
 
-            public void config() {
-                System.out.println("in new config");
-            }
-        };
+        //     public void config() {
+        //         System.out.println("in new config");
+        //     }
+        // };
+        // obj.show();
+        // obj.config();
+
+        // Interfaces
+        E obj;
+        obj = new F();
         obj.show();
-        obj.config();
+        obj.config();System.out.println(E.age+ " "+ E.city);
     }
 }
