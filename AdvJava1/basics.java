@@ -142,6 +142,11 @@ class Developer
 	}
 }
 
+// Enums
+enum Status{
+    Running, Failed, Pending, Success;
+}
+
 
 public class basics{
     public static void main(String[] args) {
@@ -194,10 +199,14 @@ public class basics{
         // Laptop lap=new Laptop();
         // Desktop desk=new Desktop();
         
-        Computer lap=new Laptop();
-        Computer desk=new Desktop();
+    //     Computer lap=new Laptop();
+    //     Computer desk=new Desktop();
         
-        Developer navin = new Developer();
-        navin.devApp(desk);
+    //     Developer navin = new Developer();
+    //     navin.devApp(desk);
+
+    // enums
+    Status s = new Status.Running;
+    System.out.println(s);
     }
 }
