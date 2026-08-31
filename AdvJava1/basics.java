@@ -76,6 +76,73 @@ class F implements E,H{ // a class can implement multiple interfaces
     }
 }
 
+// Need of Interfaces
+// abstract class Computer
+// {
+// //	public void code()
+// //	{
+// //		
+// //	}
+// 	public abstract void code();
+// }
+
+// class Laptop extends Computer
+// {
+// 	public void code()
+// 	{
+// 		System.out.println("code, compile, run");
+// 	}
+
+// }
+
+// class Desktop extends Computer
+// {
+// 	public void code()
+// 	{
+// 		System.out.println("code, compile, faster");
+// 	}
+// }
+// class Developer
+// {
+// //	public void devApp(Laptop lap)
+// 	public void devApp(Computer lap)
+// 	{
+// 		lap.code();
+// 	}
+// }
+
+// for this particular senario we can use computer interface - they craete a upper layer of abstraction(a general idea not based on any particular real person, thing or situation)
+interface Computer
+{
+	void code();
+}
+
+class Laptop implements Computer
+{
+	public void code()
+	{
+		System.out.println("code, compile, run");
+	}
+
+}
+
+class Desktop implements Computer
+{
+	public void code()
+	{
+		System.out.println("code, compile, faster");
+	}
+}
+class Developer
+{
+//	public void devApp(Laptop lap)
+	public void devApp(Computer lap)
+	{
+		lap.code();
+	}
+}
+
+
 public class basics{
     public static void main(String[] args) {
         // Car obj = new UpdatedWagonR();
@@ -112,14 +179,25 @@ public class basics{
         // obj.config();
 
         // Interfaces
-        E obj;
-        obj = new F();
-        obj.show();
+        // E obj;
+        // obj = new F();
+        // obj.show();
 
-        H obj1;
-        obj1 = new F();
-        obj1.run();
-        obj.config();
-        System.out.println(E.age+ " "+ E.city);
+        // H obj1;
+        // obj1 = new F();
+        // obj1.run();
+        // obj.config();
+        // System.out.println(E.age+ " "+ E.city);
+
+        // Need Of Interfaces
+
+        // Laptop lap=new Laptop();
+        // Desktop desk=new Desktop();
+        
+        Computer lap=new Laptop();
+        Computer desk=new Desktop();
+        
+        Developer navin = new Developer();
+        navin.devApp(desk);
     }
 }
