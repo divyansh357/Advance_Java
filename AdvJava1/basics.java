@@ -17,11 +17,35 @@ public void fly() {
 }
 
 }
+
+//Inner Class
+class A{ //Illegal modifier for the class A; only public, abstract & final are permitted for outer class , cant be static
+    private int num = 6;
+    public void show(){
+        System.out.println(num);
+    } 
+
+    static class B{
+        public void config(){
+            System.out.println("in config");
+        }
+    }
+
+}
+
+
 public class basics{
     public static void main(String[] args) {
-        Car obj = new UpdatedWagonR();
-        obj.playMusic();obj.drive();
-        obj.fly();
-        
+        // Car obj = new UpdatedWagonR();
+        // obj.playMusic();obj.drive();
+        // obj.fly();
+
+        // Inner Class 
+        A obj = new A();
+        obj.show();
+        //A.B obj1 = obj.new B();  // object creation for non static inner class  
+        A.B obj1 = new A.B(); // object creation for static inner class
+
+        obj1.config();
     }
 }
