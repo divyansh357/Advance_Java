@@ -40,6 +40,11 @@ class C{
     }
 }
 
+// Abstract and Anonymous Inner Class
+abstract class D{
+    public abstract void show();
+}
+
 
 
 public class basics{
@@ -57,9 +62,17 @@ public class basics{
         // obj1.config();
 
         //Anonymous Inner Class
-        C obj = new C(){ // class without name and 
-            public void show(){
-                System.out.println("in anonymous class show");
+        // C obj = new C(){ // class without name 
+        //     public void show(){
+        //         System.out.println("in anonymous class show");
+        //     }
+        // };
+        // obj.show();
+
+        // Abstract and Anonymous Inner Class
+        A obj = new A(){
+            public void show(){ // this object is not of abstract class it is of anonymous inner class 
+                System.out.println("in new Show");
             }
         };
         obj.show();
