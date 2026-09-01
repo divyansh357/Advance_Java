@@ -171,6 +171,21 @@ enum Laptops {
     
 }
 
+// Annotations
+class I {
+    public void showMyName(){
+        System.out.println("Show I");
+    }
+}
+class J extends I {
+
+    @Override
+    public void showMyName() { // The method showMyNam() of type J must override or implement a supertype method
+        System.out.println("show J");
+    }
+    
+}
+
 
 public class basics{
     public static void main(String[] args) {
@@ -281,10 +296,15 @@ public class basics{
     // Laptops lap = Laptops.Macbook;
     // System.out.println(lap + " : "+ lap.getPrice());
 
-    Laptops[] ll = Laptops.values();
-    for(Laptops l : ll){
-        System.out.println(l + " : " + l.getPrice());
-    }
+    // Laptops[] ll = Laptops.values();
+    // for(Laptops l : ll){
+    //     System.out.println(l + " : " + l.getPrice());
+    // }
+
+    // Annotations
+    // J obj = new J();
+    // obj.showMyName();
+
 
 
 }
