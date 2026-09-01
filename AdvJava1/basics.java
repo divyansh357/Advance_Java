@@ -217,7 +217,7 @@ public class basics{
 
     // if else and switch with enums
 
-    Status s = Status.Failed;
+    //Status s = Status.Failed;
     //if else 
 
     // if(s== Status.Running){
@@ -234,19 +234,24 @@ public class basics{
     // }
 
     // switch case with enums
-    switch (s) {
-        case Running:
-            System.out.println("In Processing");
-            break;
-        case Failed:
-            System.out.println("Try again");
-            break;    
-        case Pending:
-            System.out.println("Please wait");
-            break;
-        default:
-            System.out.println("Done");
-            break;
-    }
+    // switch (s) {
+    //     case Running:
+    //         System.out.println("In Processing");
+    //         break;
+    //     case Failed:
+    //         System.out.println("Try again");
+    //         break;    
+    //     case Pending:
+    //         System.out.println("Please wait");
+    //         break;
+    //     default:
+    //         System.out.println("Done");
+    //         break;
+    // }
+
+    // enum is a class 
+    Status s = Status.Failed;
+    System.out.println(s.getClass().getSuperclass()); // enum class extends java.lang.Enum 
+
 }
 }
