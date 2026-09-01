@@ -144,7 +144,31 @@ class Developer
 
 // Enums
 enum Status{
-    Running, Failed, Pending, Success // 0 - index based numbering
+    Running, Failed, Pending, Success; // 0 - index based numbering
+}
+
+// enum is a class
+
+enum Laptops {
+    Macbook(2500), XPS(1800) , Surface, ThinkPad(1700);
+    private int price;
+    
+    private Laptops() {
+        this.price = 500 ; // minimum price
+    }
+
+    private Laptops(int price) { // construtors are private because the object is created inside the same class
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    
 }
 
 
@@ -250,8 +274,18 @@ public class basics{
     // }
 
     // enum is a class 
-    Status s = Status.Failed;
-    System.out.println(s.getClass().getSuperclass()); // enum class extends java.lang.Enum 
+
+    // Status s = Status.Failed;
+    // System.out.println(s.getClass().getSuperclass()); // enum class extends java.lang.Enum 
+
+    // Laptops lap = Laptops.Macbook;
+    // System.out.println(lap + " : "+ lap.getPrice());
+
+    Laptops[] ll = Laptops.values();
+    for(Laptops l : ll){
+        System.out.println(l + " : " + l.getPrice());
+    }
+
 
 }
 }
