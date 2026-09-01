@@ -206,13 +206,31 @@ public class basics{
     //     navin.devApp(desk);
 
     // enums
-    Status s = Status.Running;
-    System.out.println(s);
-    System.out.println(s.ordinal()); // return the index of particular value 
+    // Status s = Status.Running;
+    // System.out.println(s);
+    // System.out.println(s.ordinal()); // return the index of particular value 
 
-    Status[] ss = Status.values(); // returns all values from enum as an array 
-    for(Status m : ss){
-        System.out.println(m + " : " + m.ordinal());
+    // Status[] ss = Status.values(); // returns all values from enum as an array 
+    // for(Status m : ss){
+    //     System.out.println(m + " : " + m.ordinal());
+    // }
+
+    // if else and switch with enums
+
+    Status s = Status.Pending;
+    //if else 
+        
+    if(s== Status.Running){
+        System.out.println("In Processing");
     }
+    else if(s== Status.Failed){
+        System.out.println("Try again later");
     }
+    else if(s== Status.Pending){
+        System.out.println("Please wait");
+    }
+    else{
+        System.out.println("Done");
+    }
+}
 }
