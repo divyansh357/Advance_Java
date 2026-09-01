@@ -187,6 +187,48 @@ class J extends I {
 }
 
 
+// Coding Exercise - 8
+interface Machine{
+    String start();
+}
+
+abstract class Appliance implements Machine{
+    private String name;
+    public abstract String start();
+    public String getName() {
+        return name;
+    }
+    public Appliance(String name){
+        this.name = name;
+    }
+}
+
+//Does an abstract class have to implement an interface's abstract methods?"
+
+//No. If the class itself is abstract, it can leave the interface's abstract methods unimplemented and let its concrete subclasses implement them.
+
+
+class Fan extends Appliance{
+    @Override
+    public String start(){
+        return "Fan is running";
+    }
+    public Fan(String name){
+        super(name);
+    }
+}
+
+
+class WashingMachine extends Appliance{
+    @Override
+    public String start(){
+        return "Washing Machine is operating";
+    }
+    public WashingMachine(String s){
+        super(s);
+    }
+}
+
 public class basics{
     public static void main(String[] args) {
         // Car obj = new UpdatedWagonR();
@@ -306,6 +348,12 @@ public class basics{
     // obj.showMyName();
 
 
+    // Coding Exercise - 8
+    Machine obj = new Fan("Fan");
+    Machine obj1 = new WashingMachine("WashingMachine");
+
+    System.out.println(obj.start(obj.getName()));
+    System.out.println(obj1.start());
 
 }
 }
