@@ -217,20 +217,36 @@ public class basics{
 
     // if else and switch with enums
 
-    Status s = Status.Pending;
+    Status s = Status.Failed;
     //if else 
-        
-    if(s== Status.Running){
-        System.out.println("In Processing");
-    }
-    else if(s== Status.Failed){
-        System.out.println("Try again later");
-    }
-    else if(s== Status.Pending){
-        System.out.println("Please wait");
-    }
-    else{
-        System.out.println("Done");
+
+    // if(s== Status.Running){
+    //     System.out.println("In Processing");
+    // }
+    // else if(s== Status.Failed){
+    //     System.out.println("Try again later");
+    // }
+    // else if(s== Status.Pending){
+    //     System.out.println("Please wait");
+    // }
+    // else{
+    //     System.out.println("Done");
+    // }
+
+    // switch case with enums
+    switch (s) {
+        case Running:
+            System.out.println("In Processing");
+            break;
+        case Failed:
+            System.out.println("Try again");
+            break;    
+        case Pending:
+            System.out.println("Please wait");
+            break;
+        default:
+            System.out.println("Done");
+            break;
     }
 }
 }
