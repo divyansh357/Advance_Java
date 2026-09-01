@@ -144,7 +144,7 @@ class Developer
 
 // Enums
 enum Status{
-    Running, Failed, Pending, Success;
+    Running, Failed, Pending, Success // 0 - index based numbering
 }
 
 
@@ -206,7 +206,13 @@ public class basics{
     //     navin.devApp(desk);
 
     // enums
-    Status s = new Status.Running;
+    Status s = Status.Running;
     System.out.println(s);
+    System.out.println(s.ordinal()); // return the index of particular value 
+
+    Status[] ss = Status.values(); // returns all values from enum as an array 
+    for(Status m : ss){
+        System.out.println(m + " : " + m.ordinal());
+    }
     }
 }
