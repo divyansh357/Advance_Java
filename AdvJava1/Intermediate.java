@@ -8,9 +8,15 @@ interface K{
 }
 
 // Custom Exception 
-class DivyanshException extends Exception{ // extends Exception class
+class DivyanshException extends Exception{ // extends Exception class or RuntimeException our choice
     public DivyanshException(String s){
         super(s); // calls super class (throwable) constructor
+    }
+}
+// Ducking the Exception - throws keyword 
+class L{
+    public void show() throws ClassNotFoundException{
+        Class.forName("Southern");
     }
 }
 public class Intermediate{
@@ -70,20 +76,30 @@ public class Intermediate{
 
         // Custom Exception 
 
+        // try {
+        //     j= 18/i;
+        //     if(j==0)
+        //         throw new DivyanshException("I dont want to print zero."); // throw custom exception
+        // } 
+        // catch (DivyanshException e) {
+        //     j=18/1; // Handling exception with a solution 
+        //     System.out.println("Thats the default output. "+ e);
+        // }
+        // catch(Exception e){
+        //     System.out.println("Something went Wrong. "+ e);
+        // }
+        // System.out.println(j);
+        // System.out.println("Byee");
+
+        // Ducking Exception by using throws keyword
+        L obj = new L();
         try {
-            j= 18/i;
-            if(j==0)
-                throw new DivyanshException("I dont want to print zero."); // throw custom exception
-        } 
-        catch (DivyanshException e) {
-            j=18/1; // Handling exception with a solution 
-            System.out.println("Thats the default output. "+ e);
+            obj.show();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found. "+ e);  // Class not found. java.lang.ClassNotFoundException: Southern
+            e.printStackTrace(); // print the whole method calling stack - for debugging 
         }
-        catch(Exception e){
-            System.out.println("Something went Wrong. "+ e);
-        }
-        System.out.println(j);
-        System.out.println("Byee");
+
 
 
 
