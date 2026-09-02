@@ -6,6 +6,13 @@ interface K{
     int add(int i , int j);
 
 }
+
+// Custom Exception 
+class DivyanshException extends Exception{ // extends Exception class
+    public DivyanshException(String s){
+        super(s); // calls super class (throwable) constructor
+    }
+}
 public class Intermediate{
     public static void main(String[] args) {
         //K obj =  (int i) -> System.out.println("in show "+ i); 
@@ -46,12 +53,29 @@ public class Intermediate{
 
 
         // throw keyword 
+        // try {
+        //     j= 18/i;
+        //     if(j==0)
+        //         throw new ArithmeticException("I dont want to print zero."); // throw exception with modified message 
+        // } 
+        // catch (ArithmeticException e) {
+        //     j=18/1; // Handling exception with a solution 
+        //     System.out.println("Thats the default output. "+ e);
+        // }
+        // catch(Exception e){
+        //     System.out.println("Something went Wrong. "+ e);
+        // }
+        // System.out.println(j);
+        // System.out.println("Byee");
+
+        // Custom Exception 
+
         try {
             j= 18/i;
             if(j==0)
-                throw new ArithmeticException("I dont want to print zero."); // throw exception with custom message 
+                throw new DivyanshException("I dont want to print zero."); // throw custom exception
         } 
-        catch (ArithmeticException e) {
+        catch (DivyanshException e) {
             j=18/1; // Handling exception with a solution 
             System.out.println("Thats the default output. "+ e);
         }
@@ -60,6 +84,7 @@ public class Intermediate{
         }
         System.out.println(j);
         System.out.println("Byee");
+
 
 
     }
