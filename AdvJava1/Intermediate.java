@@ -20,12 +20,25 @@ public class Intermediate{
         //Exception Handling Using try Catch 
         int i=0;
         int j=0;
+        int arr[] =  new int[5];
+        String str = null;
 
         try{
-            j= 18/i; // critical statement
+            //j= 18/i; // critical statement
+            System.out.println(arr[5]);  // critical statement
+            //System.out.println(str.length()); // critical statement
+
         }
-        catch(Exception e){ // executes only when exception is thrown
-            System.out.println("Something went wrong..");
+
+        // multiple catch blocks to handle different types of exception with customised messages
+        catch(ArithmeticException e){ // executes only when exception is thrown
+            System.out.println("Cannot divide by zero.");
+        }
+        catch(ArrayIndexOutOfBoundsException e){
+            System.out.println("Be in your limits.");
+        }
+        catch(Exception e){
+            System.out.println("Something Went Wrong. "+ e);
         }
 
         System.out.println(j);
