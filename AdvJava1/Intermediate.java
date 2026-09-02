@@ -1,5 +1,10 @@
 package AdvJava1;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 @FunctionalInterface
 interface K{
     //void show(int i);
@@ -15,12 +20,12 @@ class DivyanshException extends Exception{ // extends Exception class or Runtime
 }
 // Ducking the Exception - throws keyword 
 class L{
-    public void show() throws ClassNotFoundException{
-        Class.forName("Southern");
+    public void show() throws ClassNotFoundException{ // Ducking - Not handling the exception by itself and Using throws keyword to throw exception to caller method
+        Class.forName("Southern"); // loads the class and do static initiazations 
     }
 }
 public class Intermediate{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //K obj =  (int i) -> System.out.println("in show "+ i); 
         //K obj =  i -> System.out.println("in show "+ i); 
         //obj.show(5);
@@ -92,13 +97,40 @@ public class Intermediate{
         // System.out.println("Byee");
 
         // Ducking Exception by using throws keyword
-        L obj = new L();
-        try {
-            obj.show();
-        } catch (ClassNotFoundException e) {
-            System.out.println("Class not found. "+ e);  // Class not found. java.lang.ClassNotFoundException: Southern
-            e.printStackTrace(); // print the whole method calling stack - for debugging 
-        }
+        // L obj = new L();
+        // try {
+        //     obj.show();
+        // } catch (ClassNotFoundException e) {
+        //     System.out.println("Class not found. "+ e);  // Class not found. java.lang.ClassNotFoundException: Southern
+        //     e.printStackTrace(); // print the whole method calling stack - for debugging 
+        // }
+
+        // User Input Using BufferdReader and Scanner
+
+        // Using the System.in
+        // System.out.println("Enter a number");
+        // int n = System.in.read(); // be the culprit and add throws to main to handle the I/O Exception
+        // System.out.println(n-48);
+
+        //Using the BufferedReader
+        // InputStreamReader inr = new InputStreamReader(System.in);
+        // BufferedReader bf = new BufferedReader(inr);
+
+        // System.out.println("Enter a number: ");
+        // int n = Integer.parseInt(bf.readLine());
+        // System.out.println(n);
+        // bf.close(); // close the resource
+
+        // Scanner 
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(n);
+        sc.close();
+
+
+        
+
+
 
 
 
