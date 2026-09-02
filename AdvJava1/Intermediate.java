@@ -122,10 +122,39 @@ public class Intermediate{
         // bf.close(); // close the resource
 
         // Scanner 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        System.out.println(n);
-        sc.close();
+        // Scanner sc = new Scanner(System.in);
+        // int n = sc.nextInt();
+        // System.out.println(n);
+        // sc.close();
+
+        // finally the resorce closure
+        // int num =0;
+        // BufferedReader bf = null;
+        // try{
+        //      bf = new BufferedReader(new InputStreamReader(System.in));
+        //      System.out.println("Enter a number: ");
+        //      num = Integer.parseInt(bf.readLine());
+        //      System.out.println(num);
+        // }
+        // finally{
+        //     bf.close(); // resource close
+        // }
+
+        // Try with resource - when delared inside the round brackets of try it is autoclosable and the resource bf will be closed after the try block ends 
+
+        int num =0;
+        try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));)
+        {
+             System.out.println("Enter a number: ");
+             num = Integer.parseInt(bf.readLine());
+             System.out.println(num);
+        }
+
+        
+
+        
+
+        
 
 
         
