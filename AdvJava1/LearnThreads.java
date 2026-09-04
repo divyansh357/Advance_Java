@@ -49,6 +49,14 @@ class P implements Runnable {
         }   
     }
 }
+
+// Mutable Variable with multiple Thread
+class Counter {
+    int count;
+    public void increment(){
+        count++;
+    }
+}
 public class LearnThreads {
     public static void main(String[] args) {
         // M obj1 = new M();
@@ -82,21 +90,46 @@ public class LearnThreads {
 
         // Reducing code by Use of Lamba Expression - this is bit tricky to write directly first write the normal one and try reducing in steps 
 
-        Runnable obj1 = ()-> 
+        // Runnable obj1 = ()-> 
+        //  {
+        //     for(int i=0;i<5;i++)
+        //     {
+        //        System.out.println("hi");
+        //        try { Thread.sleep(10); } catch (InterruptedException e) {  e.printStackTrace();  }
+        //     }   
+        //  };
+
+        // Runnable obj2 = ()-> 
+        //  {
+        //     for(int i=0;i<5;i++)
+        //     {
+        //        System.out.println("hello");
+        //        try { Thread.sleep(10); } catch (InterruptedException e) {  e.printStackTrace();  }
+        //     }   
+        //  };
+
+        // Thread t1 = new Thread(obj1);
+        // Thread t2 = new Thread(obj2);
+
+        // t1.start(); 
+        // t2.start();
+
+        // Mutable Variable with multiple Thread
+
+        Counter q = new Counter();
+         Runnable obj1 = ()-> 
          {
-            for(int i=0;i<5;i++)
+            for(int i=0;i<1000;i++)
             {
-               System.out.println("hi");
-               try { Thread.sleep(10); } catch (InterruptedException e) {  e.printStackTrace();  }
+                q.increment();
             }   
          };
 
         Runnable obj2 = ()-> 
          {
-            for(int i=0;i<5;i++)
+            for(int i=0;i<1000;i++)
             {
-               System.out.println("hello");
-               try { Thread.sleep(10); } catch (InterruptedException e) {  e.printStackTrace();  }
+                q.increment();
             }   
          };
 
@@ -106,6 +139,7 @@ public class LearnThreads {
         t1.start(); 
         t2.start();
 
+        System.out.println(q.count);
         
 
     }
