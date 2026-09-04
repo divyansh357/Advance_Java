@@ -70,14 +70,40 @@ public class LearnThreads {
         // obj2.start();
 
         // Creating thread with Runnable Interface
-        Runnable obj1 = new O();
-        Runnable obj2 = new P();
+        // Runnable obj1 = new O();
+        // Runnable obj2 = new P();
 
-        // Creating a Thread class object to use thread methods and passing the reference of the Runnable reference with creates a link between these two 
+        // // Creating a Thread class object to use thread methods and passing the reference of the Runnable reference with creates a link between these two 
+        // Thread t1 = new Thread(obj1);
+        // Thread t2 = new Thread(obj2);
+
+        // t1.start(); // calling the start() method from the Thread class which will call the run
+        // t2.start();
+
+        // Reducing code by Use of Lamba Expression - this is bit tricky to write directly first write the normal one and try reducing in steps 
+
+        Runnable obj1 = ()-> 
+         {
+            for(int i=0;i<5;i++)
+            {
+               System.out.println("hi");
+               try { Thread.sleep(10); } catch (InterruptedException e) {  e.printStackTrace();  }
+            }   
+         };
+
+        Runnable obj2 = ()-> 
+         {
+            for(int i=0;i<5;i++)
+            {
+               System.out.println("hello");
+               try { Thread.sleep(10); } catch (InterruptedException e) {  e.printStackTrace();  }
+            }   
+         };
+
         Thread t1 = new Thread(obj1);
         Thread t2 = new Thread(obj2);
 
-        t1.start(); // calling the start() method from the Thread class which will call the run
+        t1.start(); 
         t2.start();
 
         
