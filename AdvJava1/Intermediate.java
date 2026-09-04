@@ -140,7 +140,7 @@ public class Intermediate{
         //     bf.close(); // resource close
         // }
 
-        // Try with resource - when delared inside the round brackets of try it is autoclosable and the resource bf will be closed after the try block ends 
+        // Try with resource - when delared inside the round brackets of try, BufferedReader interface autoclosable and the resource bf will be closed after the try block ends 
 
         int num =0;
         try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));)

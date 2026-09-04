@@ -194,7 +194,6 @@ interface Machine{
 
 abstract class Appliance implements Machine{
     private String name;
-    public abstract String start();
     public String getName() {
         return name;
     }
