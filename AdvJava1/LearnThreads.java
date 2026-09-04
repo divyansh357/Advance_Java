@@ -18,9 +18,17 @@ public class LearnThreads {
         A obj1 = new A();
         B obj2 = new B();
 
+        //System.out.println(obj1.getPriority());
+
+        //obj2.setPriority(1);
+        obj1.setPriority(Thread.MAX_PRIORITY);
+        
+
         // these two lines of code run parallelly with the help of threads
         obj1.start(); // starting thread execution with start() , it will call corresponding run()
         obj2.start();
+
+        
 
     }
     
