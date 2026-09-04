@@ -24,7 +24,29 @@ class L{
         Class.forName("Southern"); // loads the class and do static initiazations 
     }
 }
+
+// Coding Exercise - 10 
+class InvalidAgeException extends Exception{
+    public InvalidAgeException(String message){
+        super(message);
+    }
+}
 public class Intermediate{
+
+    // Coding Exercise - 10
+    //Validating Age with throw and throws
+    //The method checkAge(int age) checks whether the provided age is at least 18. 
+    // If the condition fails, it uses the throw keyword to throw an instance of InvalidAgeException with a custom message. 
+    // Since this method can throw a checked exception, it declares throws InvalidAgeException in its signature.
+
+    public static void checkAge(int age) throws InvalidAgeException {
+        if(age < 18){
+            throw new InvalidAgeException("Age must be 18 or older");
+        }
+        else{
+            System.out.println("Access granted");
+        }
+    }
     public static void main(String[] args) throws IOException {
         //K obj =  (int i) -> System.out.println("in show "+ i); 
         //K obj =  i -> System.out.println("in show "+ i); 
@@ -36,8 +58,8 @@ public class Intermediate{
         // System.out.println(res);
 
         //Exception Handling Using try Catch 
-        int i=20;
-        int j=0;
+        // int i=20;
+        // int j=0;
         // int arr[] =  new int[5];
         // String str = null;
 
@@ -142,13 +164,29 @@ public class Intermediate{
 
         // Try with resource - when delared inside the round brackets of try, BufferedReader interface autoclosable and the resource bf will be closed after the try block ends 
 
-        int num =0;
-        try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));)
-        {
-             System.out.println("Enter a number: ");
-             num = Integer.parseInt(bf.readLine());
-             System.out.println(num);
-        }
+        // int num =0;
+        // try(BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));)
+        // {
+        //      System.out.println("Enter a number: ");
+        //      num = Integer.parseInt(bf.readLine());
+        //      System.out.println(num);
+        // }
+
+
+        // Coding Excercise - 10
+        // try{
+        //     checkAge(16);
+        // }
+        // catch(InvalidAgeException e){
+        //     System.out.println("Exception caught: "+ e.getMessage());
+        // }
+        
+        // try{
+        //     checkAge(21);
+        // }
+        // catch(InvalidAgeException e){
+        //     System.out.println("Exception caught: "+ e.getMessage());
+        // }
 
         
 
