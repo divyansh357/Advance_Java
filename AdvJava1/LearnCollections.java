@@ -28,21 +28,82 @@ public class LearnCollections {
 
         //System.out.println(set);
 
-        Set<Integer> set = new TreeSet<>(); // unique , ordered
-        set.add(10);
-        set.add(25);
-        set.add(10);
-        set.add(89);
+        // Set<Integer> set = new TreeSet<>(); // unique , ordered
+        // set.add(10);
+        // set.add(25);
+        // set.add(10);
+        // set.add(89);
 
         // System.out.println(set);
 
         // Iterator Interface
 
-        Iterator<Integer> values = set.iterator();
+        // Iterator<Integer> values = set.iterator();
 
-        while (values.hasNext()) {
-            System.out.println(values.next());
-        }
+        // while (values.hasNext()) {
+        //     System.out.println(values.next());
+        // }
+
+        // Map
+
+        // Map<String,Integer> names = new HashMap<>();
+
+        // names.put("Div", 80);
+        // names.put("Chhavi", 85);
+        // names.put("Harshit", 80);
+        // names.put("Asmi", 90);
+        // names.put("Chhavi",86);
+
+        // System.out.println(names.keySet());
+
+        // for(String key : names.keySet()){
+        //     System.out.println(key + " : "+ names.get(key));
+        // }
+
+        // Map<String,Integer> names = new Hashtable<>(); // synchronized - if we have to make thread safe 
+
+        //Comparator for Sorting
+        // List<Integer> list = new ArrayList<>();
+
+        // list.add(43);
+        // list.add(31);
+        // list.add(72);
+        // list.add(29);
+
+        // // personalized compare definition
+        // Comparator<Integer> com = new Comparator<Integer>() {
+        //     public  int compare(Integer i , Integer j){
+        //         if(i%10 > j%10)
+        //             return 1;
+        //         else 
+        //             return -1;
+        //     }
+        // };
+
+        // Collections.sort(list,com);
+        // System.out.println(list);
+
+        // for sorting strings based on length
+        
+        List<String> list = new ArrayList<>();
+
+        list.add("Div");
+        list.add("Chhavi");
+        list.add("Asmi");
+        list.add("Harshit");
+
+        // personalized compare definition - diamond operator dont work for anynmous class
+        Comparator<String> com = new Comparator<String>() {
+            public  int compare(String i , String j){
+                if(i.length() > j.length())
+                    return 1;
+                else 
+                    return -1;
+            }
+        };
+
+        Collections.sort(list,com);
+        System.out.println(list);
 
 
 
