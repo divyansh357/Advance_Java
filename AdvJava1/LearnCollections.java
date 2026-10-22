@@ -2,7 +2,7 @@ package AdvJava1;
 
 import java.util.*;
 
-class Student{
+class Student implements Comparable<Student>{
     int age;
     String name;
     public Student(int age, String name) {
@@ -12,6 +12,14 @@ class Student{
     @Override
     public String toString() {
         return "Student [age=" + age + ", name=" + name + "]";
+    }
+    @Override
+    // Giving the power to class itself to compare , by impplementing Comparable
+    public int compareTo(Student that) {
+         if(this.age > that.age)
+                    return 1;
+                else 
+                    return -1;
     }
 
 }
@@ -127,17 +135,23 @@ public class LearnCollections {
         studs.add(new Student(22,"Asmi"));
         studs.add(new Student(21,"Harshit"));
 
-        // personalized compare definition - diamond operator dont work for anynmous class
-        Comparator<Student> com = new Comparator<Student>() {
-            public  int compare(Student i , Student j){
-                if(i.age > j.age)
-                    return 1;
-                else 
-                    return -1;
-            }
-        };
 
-       Collections.sort(studs,com);
+        // Using Comparator
+    //     Comparator<Student> com = new Comparator<Student>() {
+    //         public  int compare(Student i , Student j){
+    //             if(i.age > j.age)
+    //                 return 1;
+    //             else 
+    //                 return -1;
+    //         }
+    //     };
+
+    //    Collections.sort(studs,com);
+
+
+       // Using Compaarble
+       Collections.sort(studs);
+
        for(Student s : studs) 
         System.out.println(s);
 
