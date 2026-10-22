@@ -52,8 +52,13 @@ class P implements Runnable {
 
 // Mutable Variable with multiple Thread
 class Counter {
-    int count;
-    public void increment(){
+    int count; //shared mutable variable  
+    // public void increment(){
+    //     count++;
+    // }
+
+    //Adding the synchronised keyword to make the method thread safe - only one thread can access the method at a time 
+    public synchronized void increment(){
         count++;
     }
 }
@@ -117,9 +122,9 @@ public class LearnThreads {
         // Mutable Variable with multiple Thread
 
         Counter q = new Counter();
-         Runnable obj1 = ()-> 
+        Runnable obj1 = ()-> 
          {
-            for(int i=0;i<1000;i++)
+            for(int i=0;i<100000;i++)
             {
                 q.increment();
             }   
@@ -127,7 +132,7 @@ public class LearnThreads {
 
         Runnable obj2 = ()-> 
          {
-            for(int i=0;i<1000;i++)
+            for(int i=0;i<100000;i++)
             {
                 q.increment();
             }   
@@ -138,6 +143,9 @@ public class LearnThreads {
 
         t1.start(); 
         t2.start();
+
+        try { t1.join(); } catch (InterruptedException e) { e.printStackTrace(); } // makes the main Thread wait till the t11.finishes execution and comes back 
+        try { t2.join(); } catch (InterruptedException e) { e.printStackTrace(); }
 
         System.out.println(q.count);
         
