@@ -2,6 +2,19 @@ package AdvJava1;
 
 import java.util.*;
 
+class Student{
+    int age;
+    String name;
+    public Student(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+    @Override
+    public String toString() {
+        return "Student [age=" + age + ", name=" + name + "]";
+    }
+
+}
 public class LearnCollections {
     public static void main(String[] args) {
         //Collection<Integer> nums = new ArrayList<Integer>();
@@ -85,25 +98,49 @@ public class LearnCollections {
 
         // for sorting strings based on length
         
-        List<String> list = new ArrayList<>();
+        // List<String> list = new ArrayList<>();
 
-        list.add("Div");
-        list.add("Chhavi");
-        list.add("Asmi");
-        list.add("Harshit");
+        // list.add("Div");
+        // list.add("Chhavi");
+        // list.add("Asmi");
+        // list.add("Harshit");
+
+        // // personalized compare definition - diamond operator dont work for anynmous class
+        // Comparator<String> com = new Comparator<String>() {
+        //     public  int compare(String i , String j){
+        //         if(i.length() > j.length())
+        //             return 1;
+        //         else 
+        //             return -1;
+        //     }
+        // };
+
+        // Collections.sort(list,com);
+        // System.out.println(list);
+
+        // Creating Student class
+
+        List<Student> studs = new ArrayList<>();
+
+        studs.add(new Student(21,"Div"));
+        studs.add(new Student(20,"Chhavi"));
+        studs.add(new Student(22,"Asmi"));
+        studs.add(new Student(21,"Harshit"));
 
         // personalized compare definition - diamond operator dont work for anynmous class
-        Comparator<String> com = new Comparator<String>() {
-            public  int compare(String i , String j){
-                if(i.length() > j.length())
+        Comparator<Student> com = new Comparator<Student>() {
+            public  int compare(Student i , Student j){
+                if(i.age > j.age)
                     return 1;
                 else 
                     return -1;
             }
         };
 
-        Collections.sort(list,com);
-        System.out.println(list);
+       Collections.sort(studs,com);
+       for(Student s : studs) 
+        System.out.println(s);
+
 
 
 
