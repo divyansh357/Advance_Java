@@ -14,7 +14,7 @@ class Student implements Comparable<Student>{
         return "Student [age=" + age + ", name=" + name + "]";
     }
     @Override
-    // Giving the power to class itself to compare , by impplementing Comparable
+    // Giving the power to class itself to compare , by implementing Comparable
     public int compareTo(Student that) {
          if(this.age > that.age)
                     return 1;
@@ -26,11 +26,13 @@ class Student implements Comparable<Student>{
 public class LearnCollections {
     public static void main(String[] args) {
         //Collection<Integer> nums = new ArrayList<Integer>();
-        // List<Integer> nums = new ArrayList<>(); // for more specific methods use specific classes or interfaces 
-        // nums.add(10);
-        // nums.add(25);
-        // nums.add(10);
-        // nums.add(89);
+        List<Integer> nums = new ArrayList<>(); // for more specific methods use specific classes or interfaces 
+        nums.add(10);
+        nums.add(25);
+        nums.add(10);
+        nums.add(89);
+
+        System.out.println(nums);
 
         // for(Object n : nums){
         //     int num = (Integer) n;
@@ -128,12 +130,12 @@ public class LearnCollections {
 
         // Creating Student class
 
-        List<Student> studs = new ArrayList<>();
+        // List<Student> studs = new ArrayList<>();
 
-        studs.add(new Student(21,"Div"));
-        studs.add(new Student(20,"Chhavi"));
-        studs.add(new Student(22,"Asmi"));
-        studs.add(new Student(21,"Harshit"));
+        // studs.add(new Student(21,"Div"));
+        // studs.add(new Student(20,"Chhavi"));
+        // studs.add(new Student(22,"Asmi"));
+        // studs.add(new Student(21,"Harshit"));
 
 
         // Using Comparator
@@ -149,12 +151,26 @@ public class LearnCollections {
     //    Collections.sort(studs,com);
 
 
-       // Using Compaarble
-       Collections.sort(studs);
+       // Using Comparable - giving power to class itself for comaprison 
+    //    Collections.sort(studs);
 
-       for(Student s : studs) 
-        System.out.println(s);
+    //    for(Student s : studs) 
+    //     System.out.println(s);
 
+    // Coding Exercise 12
+
+    List<String> names = Arrays.asList("Alice", "Bob", "Alice", "David", "Bob");
+        
+        // Print the original list
+        System.out.println("Original List: "+ names);
+
+        // Convert the list to a LinkedHashSet to remove duplicates while preserving order
+        Set<String> lset = new LinkedHashSet<>();
+        for(String n : names){
+            lset.add(n);
+        }
+        // Print the set of unique names
+        System.out.println("Unique Names: "+lset);
 
 
 
