@@ -103,7 +103,14 @@ public class StreamAPI {
         // Using Sequential Stream
         long startSeq = System.currentTimeMillis(); //  current system time in milli - second
         int sum2 = nums.stream()
-                       .map(i->i*2)
+                       .map(i->{
+                        try {
+                            Thread.sleep(1);
+                        } catch (Exception e) {
+                            
+                        }
+                        return i*2;
+                        })
                        .mapToInt(i->i) // returns an object of IntStream
                        .sum(); // returns the sum of IntStream
 
@@ -113,7 +120,14 @@ public class StreamAPI {
         //Using parallel Stream  
         long startPara = System.currentTimeMillis();
         int sum3 = nums.parallelStream() // multiple Thread perform the operation so its fast
-                       .map(i->i*2)
+                       .map(i->{
+                        try {
+                            Thread.sleep(1);
+                        } catch (Exception e) {
+                            
+                        }
+                        return i*2;
+                        })
                        .mapToInt(i->i)
                        .sum();                     
             
@@ -124,7 +138,7 @@ public class StreamAPI {
 
         System.out.println("Parallel Stream time taken : "+ (endPara-startPara));
         
-        
+
         
         
 
