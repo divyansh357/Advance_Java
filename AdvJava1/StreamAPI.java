@@ -86,13 +86,13 @@ public class StreamAPI {
 
 
         // Parallel Stream 
-        int size = 10_000; 
-        List<Integer> nums = new ArrayList<>(size);
+        //int size = 10_000; 
+        // List<Integer> nums = new ArrayList<>(size);
 
-        Random ran = new Random(); // generate a random number
-        for(int i=1;i<=size;i++){
-            nums.add(ran.nextInt(100));
-        }
+        // Random ran = new Random(); // generate a random number
+        // for(int i=1;i<=size;i++){
+        //     nums.add(ran.nextInt(100));
+        // }
 
         //System.out.println(nums);
         
@@ -101,43 +101,63 @@ public class StreamAPI {
         //                .reduce(0,(c,e)->c+e);
 
         // Using Sequential Stream
-        long startSeq = System.currentTimeMillis(); //  current system time in milli - second
-        int sum2 = nums.stream()
-                       .map(i->{
-                        try {
-                            Thread.sleep(1);
-                        } catch (Exception e) {
+        // long startSeq = System.currentTimeMillis(); //  current system time in milli - second
+        // int sum2 = nums.stream()
+        //                .map(i->{
+        //                 try {
+        //                     Thread.sleep(1);
+        //                 } catch (Exception e) {
                             
-                        }
-                        return i*2;
-                        })
-                       .mapToInt(i->i) // returns an object of IntStream
-                       .sum(); // returns the sum of IntStream
+        //                 }
+        //                 return i*2;
+        //                 })
+        //                .mapToInt(i->i) // returns an object of IntStream
+        //                .sum(); // returns the sum of IntStream
 
-        long endSeq = System.currentTimeMillis();               
+        // long endSeq = System.currentTimeMillis();               
 
 
         //Using parallel Stream  
-        long startPara = System.currentTimeMillis();
-        int sum3 = nums.parallelStream() // multiple Thread perform the operation so its fast
-                       .map(i->{
-                        try {
-                            Thread.sleep(1);
-                        } catch (Exception e) {
+        // long startPara = System.currentTimeMillis();
+        // int sum3 = nums.parallelStream() // multiple Thread perform the operation so its fast
+        //                .map(i->{
+        //                 try {
+        //                     Thread.sleep(1);
+        //                 } catch (Exception e) {
                             
-                        }
-                        return i*2;
-                        })
-                       .mapToInt(i->i)
-                       .sum();                     
+        //                 }
+        //                 return i*2;
+        //                 })
+        //                .mapToInt(i->i)
+        //                .sum();                     
             
-        long endPara = System.currentTimeMillis();           
+        // long endPara = System.currentTimeMillis();           
                        
-        System.out.println(sum2 + " "+ sum3);               
-        System.out.println("Sequential Stream time taken : "+ (endSeq-startSeq));
+        // System.out.println(sum2 + " "+ sum3);               
+        // System.out.println("Sequential Stream time taken : "+ (endSeq-startSeq));
 
-        System.out.println("Parallel Stream time taken : "+ (endPara-startPara));
+        // System.out.println("Parallel Stream time taken : "+ (endPara-startPara));
+
         
+        // Optional Class in Java
+
+        List<String> list = Arrays.asList("Sam","Elon","Mark","Venkat");
+
+        // Optional<String> name = list.stream()
+        //                             .filter(str->str.contains("e"))
+        //                             .findFirst(); 
+        
+        // System.out.println(name.orElse("Not Found"));
+
+
+        // alternate way of writing this
+        String name = list.stream()
+                            .filter(str->str.contains("e"))
+                            .findFirst()
+                            .orElse("Not Found"); 
+        
+        System.out.println(name);
+
 
         
         

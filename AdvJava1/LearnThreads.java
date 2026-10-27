@@ -64,23 +64,23 @@ class Counter {
 }
 public class LearnThreads {
     public static void main(String[] args) {
-        // M obj1 = new M();
-        // N obj2 = new N();
+        M obj1 = new M();
+        N obj2 = new N();
 
-        // //System.out.println(obj1.getPriority());
+        System.out.println(obj1.getPriority());
 
-        // //obj2.setPriority(1); // this is just a suggestion to scheduler , final class is made by by  the schedular based on the algo it is accomapnied with
-        // obj1.setPriority(Thread.MAX_PRIORITY);
+        obj2.setPriority(1); // this is just a suggestion to scheduler , final decision is made by by  the schedular based on the algo it is accomapnied with
+        obj1.setPriority(Thread.MAX_PRIORITY);
         
 
-        // these two lines of code run parallelly with the help of threads
-        // obj1.start(); // starting thread execution with start() , it will call corresponding run()
+        //these two lines of code run parallelly with the help of threads
+        obj1.start(); // starting thread execution with start() , it will call corresponding run()
        
-        // try {
-        //       Thread.sleep(5);
-        //     } catch (InterruptedException e) {  e.printStackTrace();  }
+        try {
+              Thread.sleep(5);
+            } catch (InterruptedException e) {  e.printStackTrace();  }
 
-        // obj2.start();
+        obj2.start();
 
         // Creating thread with Runnable Interface
         // Runnable obj1 = new O();
@@ -121,33 +121,33 @@ public class LearnThreads {
 
         // Mutable Variable with multiple Thread
 
-        Counter q = new Counter();
-        Runnable obj1 = ()-> 
-         {
-            for(int i=0;i<100000;i++)
-            {
-                q.increment();
-            }   
-         };
+        // Counter q = new Counter();
+        // Runnable obj1 = ()-> 
+        //  {
+        //     for(int i=0;i<100000;i++)
+        //     {
+        //         q.increment();
+        //     }   
+        //  };
 
-        Runnable obj2 = ()-> 
-         {
-            for(int i=0;i<100000;i++)
-            {
-                q.increment();
-            }   
-         };
+        // Runnable obj2 = ()-> 
+        //  {
+        //     for(int i=0;i<100000;i++)
+        //     {
+        //         q.increment();
+        //     }   
+        //  };
 
-        Thread t1 = new Thread(obj1);
-        Thread t2 = new Thread(obj2);
+        // Thread t1 = new Thread(obj1);
+        // Thread t2 = new Thread(obj2);
 
-        t1.start(); 
-        t2.start();
+        // t1.start(); 
+        // t2.start();
 
-        try { t1.join(); } catch (InterruptedException e) { e.printStackTrace(); } // makes the main Thread wait till the t11.finishes execution and comes back 
-        try { t2.join(); } catch (InterruptedException e) { e.printStackTrace(); }
+        // try { t1.join(); } catch (InterruptedException e) { e.printStackTrace(); } // makes the main Thread wait till the t11.finishes execution and comes back 
+        // try { t2.join(); } catch (InterruptedException e) { e.printStackTrace(); }
 
-        System.out.println(q.count);
+        // System.out.println(q.count);
         
 
     }
