@@ -141,22 +141,43 @@ public class StreamAPI {
         
         // Optional Class in Java
 
-        List<String> list = Arrays.asList("Sam","Elon","Mark","Venkat");
+        // List<String> list = Arrays.asList("Sam","Elon","Mark","Venkat");
 
-        // Optional<String> name = list.stream()
-        //                             .filter(str->str.contains("e"))
-        //                             .findFirst(); 
+        // // Optional<String> name = list.stream()
+        // //                             .filter(str->str.contains("e"))
+        // //                             .findFirst(); 
         
-        // System.out.println(name.orElse("Not Found"));
+        // // System.out.println(name.orElse("Not Found"));
 
 
-        // alternate way of writing this
-        String name = list.stream()
-                            .filter(str->str.contains("e"))
-                            .findFirst()
-                            .orElse("Not Found"); 
+        // // alternate way of writing this
+        // String name = list.stream()
+        //                     .filter(str->str.contains("e"))
+        //                     .findFirst()
+        //                     .orElse("Not Found"); 
         
-        System.out.println(name);
+        // System.out.println(name);
+
+        // Method Reference (Java 8)
+
+        List<String> names = Arrays.asList("Navin","Div","Elon","Mark");
+
+        // List<String> uNames = names.stream()
+        //                           .map(str->str.toUpperCase())
+        //                           .toList();
+
+        // uNames.forEach(s->System.out.println(s));                
+        
+        // by method reference we can simplify this as 
+
+        List<String> uNames = names.stream()
+                                  .map(String::toUpperCase) // passing method to a method by name
+                                  .toList();
+
+        uNames.forEach(System.out::println);  
+
+
+
 
 
         
