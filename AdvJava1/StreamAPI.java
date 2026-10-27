@@ -6,6 +6,36 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+class Student{
+    private String name;
+    private int age;
+    public Student() {
+    }
+    public Student(String name) {
+        this.name = name;
+    }
+    public Student(int age) {
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    @Override
+    public String toString() {
+        return "Student [name=" + name + ", age=" + age + "]";
+    }
+    
+}
+
 public class StreamAPI {
     public static void main(String[] args) {
 
@@ -160,7 +190,7 @@ public class StreamAPI {
 
         // Method Reference (Java 8)
 
-        List<String> names = Arrays.asList("Navin","Div","Elon","Mark");
+        //List<String> names = Arrays.asList("Navin","Div","Elon","Mark");
 
         // List<String> uNames = names.stream()
         //                           .map(str->str.toUpperCase())
@@ -170,13 +200,31 @@ public class StreamAPI {
         
         // by method reference we can simplify this as 
 
-        List<String> uNames = names.stream()
-                                  .map(String::toUpperCase) // passing method to a method by name
-                                  .toList();
+        // List<String> uNames = names.stream()
+        //                           .map(String::toUpperCase) // passing method to a method by name
+        //                           .toList();
 
-        uNames.forEach(System.out::println);  
+        // uNames.forEach(System.out::println);  
 
 
+        // Constructor Reference
+
+        List<String> names = Arrays.asList("Navin","Div","Elon","Mark");
+
+        List<Student> studs = new ArrayList<>();
+
+        // studs = names.stream()
+        //               .map(name->new Student(name))
+        //               .toList();
+
+
+        // by constructor reference we can do it easily 
+
+        studs = names.stream()
+                      .map(Student::new) // new from Student
+                      .toList();
+
+        studs.forEach(s->System.out.println(s.getName()));              
 
 
 
