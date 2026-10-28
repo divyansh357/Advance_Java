@@ -227,6 +227,21 @@ public class StreamAPI {
         studs.forEach(s->System.out.println(s.getName()));              
 
 
+        // Coding Excercise 13
+
+        List<String> products = Arrays.asList("Laptop", "Pen", "Notebook", "Headphones", "Smartphone");
+
+       
+        System.out.println("Original List: "+ products);
+        
+       
+        List<String> list = products.stream()
+                                     .filter(str->(str.length()>5))
+                                     .map(String::toUpperCase)
+                                     .sorted()
+                                     .toList();
+       
+        System.out.println("Filtered Products: "+list);
 
         
         
